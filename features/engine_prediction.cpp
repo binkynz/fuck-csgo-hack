@@ -94,7 +94,7 @@ namespace n_engine_prediction {
 		n_interfaces::prediction->setup_move( player, cmd, n_interfaces::move_helper, reinterpret_cast< CMoveData* >( move_data ) );
 
 		if ( vehicle )
-			( *( void( __thiscall** )( int, C_CSPlayer*, void* ) )( *reinterpret_cast< DWORD* >( vehicle ) + 20 ) )( reinterpret_cast< std::uint32_t >( vehicle ), player, move_data );
+			n_utilities::get_virtual_function< void( __thiscall* )( int, C_CSPlayer*, void* ) >( vehicle, 5 )( reinterpret_cast< std::uint32_t >( vehicle ), player, move_data );
 		else
 			n_interfaces::game_movement->process_movement( player, reinterpret_cast< CMoveData* >( move_data ) );
 
