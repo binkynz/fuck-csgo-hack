@@ -1,0 +1,3 @@
+﻿  Paint.cpp
+C:\Users\modif\OneDrive\Desktop\sources\fuck\fuck\hooks\functions\Paint.cpp(26,112): error C2660: 'IClientEntityList::get_client_entity': function does not take 0 arguments
+C:\Users\modif\OneDrive\Desktop\sources\fuck\fuck\sdk\IClientEntityList.h(26,16): message : see declaration of 'IClientEntityList::get_client_entity'

@@ -1,13 +1,14 @@
 #pragma once
 
 #include "../math/vector3d.h"
+#include "../math/qangle.h"
 
 class CUserCmd {
 public:
 	char _pad0[ 0x4 ]; // 0
 	int command_number; // 4
 	int tick_count; // 8
-	vector3d_t view_angles; // 12
+	qangle_t view_angles; // 12
 	vector3d_t aim_direction; // 24
 	float forward_move; // 36
 	float side_move; // 40

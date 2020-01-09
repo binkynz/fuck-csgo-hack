@@ -7,5 +7,5 @@
 class IVModelInfo {
 public:
 	// returns name of model
-	virtual_fn( get_model_name( const void* model ), 3, const char* (__thiscall*)(void*, const void*), model ); // 3
+	virtual_fn( get_model_name( const void* model ), 3, const char* ( __thiscall* )( void*, const void* ), model ); // 3
 };

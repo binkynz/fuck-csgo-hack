@@ -23,10 +23,12 @@ namespace n_hooks {
 				n_interfaces::surface->draw_filled_rect_fade( 5, 20, 115, 40, 255, 122, true );
 
 				// the loop and everything inside is very temporary and is only an example
+				C_CSPlayer* local_player = reinterpret_cast< C_CSPlayer* >( n_interfaces::entity_list->get_client_entity( n_interfaces::engine->get_local_player( ) ) );
+
 				for ( int i = 1; i <= n_interfaces::global_vars_base->max_clients; i++ ) {
 					C_CSPlayer* player = reinterpret_cast< C_CSPlayer* >( n_interfaces::entity_list->get_client_entity( i ) );
 
-					if ( !player || !player->is_alive( ) )
+					if ( !player || !player->is_alive( ) || !local_player || player == local_player )
 						continue;
 
 					vector3d_t screen_position, eye_position = player->get_bone_position( player->get_bone_id( "head_0" ) );

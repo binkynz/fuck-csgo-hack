@@ -48,12 +48,12 @@ public:
 	// this is how game code affects how a material is rendered.
 	// the game code must know about the params that are used by
 	// the shader for the material that it is trying to affect.
-	virtual_fn( find_var( const char* name, bool* found, bool complain = true ), 11, IMaterialVar* (__thiscall*)(void*, const char*, bool*, bool), name, found, complain ); // 11
+	virtual_fn( find_var( const char* name, bool* found, bool complain = true ), 11, IMaterialVar* ( __thiscall* )( void*, const char*, bool*, bool ), name, found, complain ); // 11
 
 	// apply constant color or alpha modulation
-	virtual_fn( alpha_modulate( float alpha ), 27, void( __thiscall* )(void*, float), alpha ); // 27
-	virtual_fn( color_modulate( float r, float g, float b ), 28, void( __thiscall* )(void*, float, float, float), r, g, b ); // 28
+	virtual_fn( alpha_modulate( float alpha ), 27, void( __thiscall* )( void*, float ), alpha ); // 27
+	virtual_fn( color_modulate( float r, float g, float b ), 28, void( __thiscall* )( void*, float, float, float ), r, g, b ); // 28
 
 	// material var flags...
-	virtual_fn( set_material_var_flag( MaterialVarFlags_t flag, bool on ), 29, void( __thiscall* )(void*, MaterialVarFlags_t, bool), flag, on ); // 29
+	virtual_fn( set_material_var_flag( MaterialVarFlags_t flag, bool on ), 29, void( __thiscall* )( void*, MaterialVarFlags_t, bool ), flag, on ); // 29
 };

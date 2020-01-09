@@ -6,10 +6,10 @@
 
 inline int UtlMemory_CalcNewAllocationcount( int nAllocationcount, int nGrowSize, int nNewSize, int nBytesItem ) {
 	if ( nGrowSize )
-		nAllocationcount = ((1 + ((nNewSize - 1) / nGrowSize)) * nGrowSize);
+		nAllocationcount = ( ( 1 + ( ( nNewSize - 1 ) / nGrowSize ) ) * nGrowSize );
 	else {
 		if ( !nAllocationcount )
-			nAllocationcount = (31 + nBytesItem) / nBytesItem;
+			nAllocationcount = ( 31 + nBytesItem ) / nBytesItem;
 
 		while ( nAllocationcount < nNewSize )
 			nAllocationcount *= 2;
@@ -23,7 +23,7 @@ class CUtlMemory {
 public:
 	bool is_valid_index( I i ) const {
 		long x = i;
-		return (x >= 0) && (x < alloc_count);
+		return ( x >= 0 ) && ( x < alloc_count );
 	}
 
 	T& operator[]( I i );
@@ -48,7 +48,7 @@ public:
 		int new_alloc_count = UtlMemory_CalcNewAllocationcount( alloc_count, grow_size, alloc_requested, sizeof( T ) );
 
 		if ( ( int )( I )new_alloc_count < alloc_requested ) {
-			if ( ( int )( I )new_alloc_count == 0 && ( int )( I )(new_alloc_count - 1) >= alloc_requested ) {
+			if ( ( int )( I )new_alloc_count == 0 && ( int )( I )( new_alloc_count - 1 ) >= alloc_requested ) {
 				--new_alloc_count;
 			}
 			else {
@@ -57,7 +57,7 @@ public:
 					return;
 				}
 				while ( ( int )( I )new_alloc_count < alloc_requested ) {
-					new_alloc_count = (new_alloc_count + alloc_requested) / 2;
+					new_alloc_count = ( new_alloc_count + alloc_requested ) / 2;
 				}
 			}
 		}
@@ -71,7 +71,7 @@ public:
 			memory = ( T* )ptr;
 		}
 		else {
-			memory = (T*)new unsigned char[ alloc_count * sizeof( T ) ];
+			memory = ( T* )new unsigned char[ alloc_count * sizeof( T ) ];
 		}
 	}
 
@@ -100,12 +100,12 @@ void destruct( T* memory ) {
 
 template< class T >
 T* construct( T* memory ) {
-	return ::new(memory) T;
+	return ::new( memory ) T;
 }
 
 template< class T >
 T* copy_construct( T* memory, T const& src ) {
-	return ::new(memory) T( src );
+	return ::new( memory ) T( src );
 }
 
 template< class T, class A = CUtlMemory< T > >
@@ -143,20 +143,20 @@ public:
 	}
 
 	bool is_valid_index( int i ) const {
-		return (i >= 0) && (i < size);
+		return ( i >= 0 ) && ( i < size );
 	}
 
 	void shift_elements_right( int elem, int num = 1 ) {
-		assert( is_valid_index( elem ) || (size == 0) || (num == 0) );
+		assert( is_valid_index( elem ) || ( size == 0 ) || ( num == 0 ) );
 		int nuto_move = size - elem - num;
-		if ( (nuto_move > 0) && (num > 0) )
+		if ( ( nuto_move > 0 ) && ( num > 0 ) )
 			memmove( &element( elem + num ), &element( elem ), nuto_move * sizeof( T ) );
 	}
 
 	void shift_elements_left( int elem, int num = 1 ) {
-		assert( is_valid_index( elem ) || (size == 0) || (num == 0) );
+		assert( is_valid_index( elem ) || ( size == 0 ) || ( num == 0 ) );
 		int numToMove = size - elem - num;
-		if ( (numToMove > 0) && (num > 0) )
+		if ( ( numToMove > 0 ) && ( num > 0 ) )
 			memmove( &element( elem ), &element( elem + num ), numToMove * sizeof( T ) );
 	}
 
@@ -170,7 +170,7 @@ public:
 
 	int insert_before( int elem ) {
 		// Can insert at the end
-		assert( (elem == count( )) || is_valid_index( elem ) );
+		assert( ( elem == count( ) ) || is_valid_index( elem ) );
 
 		grow_vector( );
 		shift_elements_right( elem );
@@ -188,10 +188,10 @@ public:
 
 	int insert_before( int elem, const T& src ) {
 		// Can't insert something that's in the list... reallocation may hose us
-		assert( (base( ) == NULL) || (&src < base( )) || (&src >= (base( ) + count( ))) );
+		assert( ( base( ) == NULL ) || ( &src < base( ) ) || ( &src >= ( base( ) + count( ) ) ) );
 
 		// Can insert at the end
-		assert( (elem == count( )) || is_valid_index( elem ) );
+		assert( ( elem == count( ) ) || is_valid_index( elem ) );
 
 		grow_vector( );
 		shift_elements_right( elem );

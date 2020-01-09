@@ -4,6 +4,7 @@
 #include "../utilities/utilities.h"
 #include "../interfaces/interfaces.h"
 #include "../math/vector3d.h"
+#include "../math/qangle.h"
 #include "../math/matrix.h"
 
 class C_BaseEntity {
@@ -39,7 +40,7 @@ public:
 	virtual_fn( think( void ), 138, void( __thiscall* )( void* ) ); // 8B C1 8B 50 40
 	virtual_fn( pre_think( void ), 317, void( __thiscall* )( void* ) ); // 55 8B EC 83 E4 F8 51 56 8B F1 8B 06
 	virtual_fn( post_think( void ), 318, void( __thiscall* )( void* ) ); // 56 8B 35 ? ? ? ? 57 8B F9 8B CE 8B 06 FF 90 ? ? ? ? 8B 07
-	virtual_fn( set_local_view_angles( vector3d_t& angle ), 372, void( __thiscall* )( void*, vector3d_t& ), angle ); // unk
+	virtual_fn( set_local_view_angles( qangle_t& angle ), 372, void( __thiscall* )( void*, qangle_t& ), angle ); // unk
 
 	bool using_standard_weapons_in_vechile( void ) {
 		static auto using_standard_weapons_in_vechile_fn = reinterpret_cast< bool( __thiscall* )( void* ) >( n_utilities::find_pattern( "client_panorama.dll", "56 57 8B F9 8B 97 ? ? ? ? 83 FA FF 74 41" ) );

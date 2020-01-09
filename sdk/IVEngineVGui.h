@@ -14,9 +14,9 @@ enum VGuiPanel_t {
 
 // In-game panels are cropped to the current engine viewport size
 enum PaintMode_t {
-	PAINT_UIPANELS = (1 << 0),
-	PAINT_INGAMEPANELS = (1 << 1),
-	PAINT_CURSOR = (1 << 2), // software cursor, if appropriate
+	PAINT_UIPANELS = ( 1 << 0 ),
+	PAINT_INGAMEPANELS = ( 1 << 1 ),
+	PAINT_CURSOR = ( 1 << 2 ), // software cursor, if appropriate
 };
 
 

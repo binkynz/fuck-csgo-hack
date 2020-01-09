@@ -2,6 +2,7 @@
 
 #include "../utilities/utilities.h"
 #include "../math/vector3d.h"
+#include "../math/qangle.h"
 
 // https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/public/engine/ivmodelrender.h
 
@@ -37,7 +38,7 @@ enum OverrideType_t {
 // holy shit this is meant to be here
 struct ModelRenderInfo_t {
     vector3d_t origin;
-    vector3d_t angles;
+    qangle_t angles;
     char _pad0[ 0x4 ];
     IClientRenderable* renderable;
     const void* model;
@@ -56,5 +57,5 @@ class IVModelRender {
 public:
     // this causes a material to be used when rendering the model instead 
     // of the materials the model was compiled with
-    virtual_fn( forced_material_override( IMaterial* new_material, OverrideType_t override_type = OVERRIDE_NORMAL, int overrides = 0 ), 1, void( __thiscall* )(void*, IMaterial*, OverrideType_t, int), new_material, override_type, overrides );
+    virtual_fn( forced_material_override( IMaterial* new_material, OverrideType_t override_type = OVERRIDE_NORMAL, int overrides = 0 ), 1, void( __thiscall* )( void*, IMaterial*, OverrideType_t, int ), new_material, override_type, overrides );
 };

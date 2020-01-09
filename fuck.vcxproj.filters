@@ -209,5 +209,8 @@
     <ClInclude Include="entities\entity.h">
       <Filter>source\entities</Filter>
     </ClInclude>
+    <ClInclude Include="math\qangle.h">
+      <Filter>source\math</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

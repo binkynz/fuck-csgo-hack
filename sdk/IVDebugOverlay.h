@@ -7,5 +7,5 @@
 
 class IVDebugOverlay {
 public:
-	virtual_fn( screen_position( vector3d_t& point, vector3d_t& screen ), 13, int( __thiscall* )(void*, vector3d_t&, vector3d_t&), point, screen );
+	virtual_fn( screen_position( vector3d_t& point, vector3d_t& screen ), 13, int( __thiscall* )( void*, vector3d_t&, vector3d_t& ), point, screen );
 };

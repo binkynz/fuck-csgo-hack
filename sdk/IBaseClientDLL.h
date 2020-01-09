@@ -9,5 +9,5 @@ class ClientClass;
 class IBaseClientDLL {
 public:
 	// request a pointer to the list of client datatable classes
-	virtual_fn( get_all_classes( ), 8, ClientClass* (__thiscall*)(void*) );
+	virtual_fn( get_all_classes( ), 8, ClientClass* ( __thiscall* )( void* ) );
 };
